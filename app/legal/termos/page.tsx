@@ -1,8 +1,10 @@
-/* /legal/termos — MINUTA provisória (em revisão jurídica). */
+/* /legal/termos — versão inicial (em revisão jurídica). Conteúdo
+ * fornecido pelo cliente. Layout simples via <LegalDoc>. */
 import type { Metadata } from "next";
 import { LegalDoc, type LegalBlock } from "@/components/sections/legal-doc";
 
-const DESCRIPTION = "Termos de Uso da Vertho.ai — minuta em revisão jurídica.";
+const DESCRIPTION =
+  "Termos para uso do site institucional vertho.ai. Versão inicial, em revisão jurídica.";
 
 export const metadata: Metadata = {
   title: { absolute: "Termos de Uso — Vertho.ai" },
@@ -19,58 +21,57 @@ export const metadata: Metadata = {
   },
 };
 
+const INTRO =
+  "Este documento descreve os termos para uso do site institucional vertho.ai. Uma versão completa, revisada juridicamente, será publicada nas próximas semanas. Para os termos de uso da plataforma Mentor IA (app.vertho.ai), consulte o contrato comercial.";
+
 const BLOCKS: LegalBlock[] = [
   {
-    h: "Aceitação",
+    h: "Sobre a Vertho.ai",
     p: [
-      "Ao acessar e usar este site institucional da Vertho.ai, você concorda com estes Termos. Se não concordar, não utilize o site.",
+      "A Vertho.ai é uma plataforma brasileira de Inteligência de Pessoas com IA, focada em diagnóstico, desenvolvimento e acompanhamento de profissionais em escolas e empresas.",
     ],
   },
   {
-    h: "Objeto",
+    h: "Finalidade do site",
     p: [
-      "Este site apresenta a plataforma Vertho (Mentor IA, Onboarding, Pulso) e permite contato comercial. O acesso ao produto em si é regido por contrato específico.",
-    ],
-  },
-  {
-    h: "Uso adequado",
-    p: [
-      "Você concorda em não utilizar o site para fins ilícitos, em não tentar comprometer sua segurança e em fornecer informações verídicas no formulário de contato.",
+      "Este site tem finalidade institucional e comercial: apresentar produtos, casos de uso e captar contato de organizações interessadas. Não oferece serviços operacionais via site.",
     ],
   },
   {
     h: "Propriedade intelectual",
     p: [
-      "Marca, identidade visual, textos e componentes são de titularidade da Vertho.ai, salvo indicação em contrário. É vedada a reprodução sem autorização.",
+      "Todo o conteúdo deste site — textos, imagens, identidade visual, marca, código e qualquer outro material — é de propriedade da Vertho.ai ou licenciado a ela, e está protegido pela legislação brasileira de propriedade intelectual. Não é permitido reproduzir, redistribuir, modificar ou utilizar comercialmente o conteúdo sem autorização expressa.",
     ],
   },
   {
-    h: "Limitação de responsabilidade",
+    h: "Links externos",
     p: [
-      "O conteúdo é informativo e pode ser alterado sem aviso. A Vertho.ai não se responsabiliza por decisões tomadas exclusivamente com base no conteúdo institucional.",
-      "Conteúdos sobre NR-1 são subsídios e não substituem avaliação técnica de riscos psicossociais por profissional habilitado.",
+      "Eventuais links para sites de terceiros são fornecidos apenas para conveniência. A Vertho.ai não se responsabiliza pelo conteúdo, políticas ou práticas desses sites.",
     ],
   },
   {
-    h: "Privacidade",
+    h: "Modificações",
     p: [
-      "O tratamento de dados pessoais segue a Política de Privacidade, parte integrante destes Termos.",
+      "Estes termos podem ser atualizados a qualquer momento. A data da última atualização aparece no topo desta página.",
     ],
   },
   {
-    h: "Lei aplicável e foro",
-    p: [
-      "Estes Termos são regidos pela legislação brasileira. O foro competente será definido na versão final, revisada juridicamente.",
-    ],
+    h: "Foro",
+    p: ["Eventuais disputas serão dirimidas no foro da comarca de São Paulo/SP."],
+  },
+  {
+    h: "Contato",
+    p: ["Para dúvidas sobre estes termos: contato@vertho.ai."],
   },
 ];
 
 export default function TermosPage() {
   return (
     <LegalDoc
-      eyebrow="Legal"
+      eyebrow="Versão inicial — em revisão jurídica"
       title="Termos de Uso"
       updated="16 de maio de 2026"
+      intro={INTRO}
       blocks={BLOCKS}
     />
   );

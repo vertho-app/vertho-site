@@ -1,10 +1,10 @@
-/* /legal/privacidade — MINUTA provisória (em revisão jurídica LGPD).
- * Estrutura real; texto definitivo virá do advogado. */
+/* /legal/privacidade — versão inicial (em revisão jurídica). Conteúdo
+ * fornecido pelo cliente. Layout simples via <LegalDoc>. */
 import type { Metadata } from "next";
 import { LegalDoc, type LegalBlock } from "@/components/sections/legal-doc";
 
 const DESCRIPTION =
-  "Política de Privacidade da Vertho.ai (LGPD) — minuta em revisão jurídica.";
+  "Como a Vertho.ai trata os dados pessoais coletados no site (LGPD). Versão inicial, em revisão jurídica.";
 
 export const metadata: Metadata = {
   title: { absolute: "Política de Privacidade — Vertho.ai" },
@@ -21,51 +21,51 @@ export const metadata: Metadata = {
   },
 };
 
+const INTRO =
+  "Esta página descreve, de forma resumida, como a Vertho.ai trata os dados pessoais coletados no site institucional vertho.ai. Uma versão completa, revisada juridicamente, será publicada nas próximas semanas.";
+
 const BLOCKS: LegalBlock[] = [
+  { h: "Controlador dos dados", p: ["Vertho.ai · contato@vertho.ai"] },
   {
-    h: "Controlador dos dados",
+    h: "Quais dados coletamos",
     p: [
-      "A Vertho.ai é a controladora dos dados pessoais coletados por este site institucional. Contato: contato@vertho.ai.",
-      "A razão social e o CNPJ que constarão na versão final estão pendentes de confirmação interna.",
+      "Coletamos apenas os dados que você nos fornece voluntariamente via formulário de contato: nome, e-mail corporativo, telefone (opcional), tipo e tamanho da organização, origem do contato e mensagem.",
     ],
   },
   {
-    h: "Dados que coletamos",
+    h: "Para que usamos",
     p: [
-      "Dados que você fornece no formulário de contato: nome, e-mail corporativo, telefone (opcional), tipo e tamanho da organização, como conheceu a Vertho e a mensagem enviada.",
-      "Dados técnicos mínimos de navegação (analytics agregado), sem perfilamento individual para publicidade.",
+      "Os dados são usados exclusivamente para responder seu contato comercial, agendar conversas de demonstração e enviar materiais relacionados ao seu interesse. Não vendemos, alugamos ou compartilhamos seus dados com terceiros para fins de marketing.",
     ],
   },
   {
-    h: "Finalidade e base legal",
+    h: "Base legal",
     p: [
-      "Usamos os dados de contato exclusivamente para responder à sua solicitação e conduzir conversas comerciais — base legal: procedimentos preliminares relacionados a contrato e legítimo interesse (art. 7º da LGPD).",
-      "Não vendemos nem cedemos seus dados a terceiros para fins de marketing.",
+      "Tratamos seus dados com base no consentimento (Art. 7º, I da LGPD) e no legítimo interesse em responder solicitações comerciais (Art. 7º, IX).",
     ],
   },
   {
-    h: "Compartilhamento e operadores",
+    h: "Por quanto tempo guardamos",
     p: [
-      "Utilizamos operadores para hospedagem, armazenamento do lead e envio de e-mail transacional, que tratam os dados sob nossas instruções e contrato.",
-      "Transferências internacionais, quando ocorrerem, seguirão as salvaguardas exigidas pela LGPD.",
+      "Mantemos os dados pelo tempo necessário para responder seu contato e, se houver evolução comercial, durante a vigência da relação. Após esse período, os dados são eliminados ou anonimizados.",
     ],
   },
   {
-    h: "Direitos do titular",
+    h: "Seus direitos",
     p: [
-      "Você pode solicitar confirmação de tratamento, acesso, correção, anonimização, portabilidade e eliminação dos seus dados, bem como revogar consentimento, pelo e-mail contato@vertho.ai.",
+      "Você pode solicitar a qualquer momento o acesso, correção, anonimização ou exclusão dos seus dados, conforme os Arts. 17 e 18 da LGPD. Para isso, envie e-mail para contato@vertho.ai.",
     ],
   },
   {
-    h: "Segurança e retenção",
+    h: "Cookies",
     p: [
-      "Adotamos medidas técnicas e organizacionais para proteger os dados e os mantemos apenas pelo período necessário às finalidades informadas ou exigências legais.",
+      "Este site não utiliza cookies de rastreamento de terceiros. Cookies técnicos podem ser usados para funcionamento básico da navegação.",
     ],
   },
   {
-    h: "Encarregado (DPO) e alterações",
+    h: "Encarregado (DPO)",
     p: [
-      "O encarregado de dados será indicado na versão final. Esta política poderá ser atualizada; a data de vigência será sempre informada no topo.",
+      "Em definição. Para questões sobre seus dados, escreva para contato@vertho.ai.",
     ],
   },
 ];
@@ -73,9 +73,10 @@ const BLOCKS: LegalBlock[] = [
 export default function PrivacidadePage() {
   return (
     <LegalDoc
-      eyebrow="Legal"
+      eyebrow="Versão inicial — em revisão jurídica"
       title="Política de Privacidade"
       updated="16 de maio de 2026"
+      intro={INTRO}
       blocks={BLOCKS}
     />
   );
