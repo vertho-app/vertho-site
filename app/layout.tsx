@@ -9,9 +9,44 @@
  * ─────────────────────────────────────────────────────────────────────────── */
 import type { Metadata } from "next";
 import { Inter, Instrument_Serif, Manrope } from "next/font/google";
+import Script from "next/script";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { NavBar } from "@/components/layout/nav-bar";
 import { Footer } from "@/components/layout/footer";
+
+/* Schema.org — Organization + SoftwareApplication (sem ratings/preços falsos). */
+const JSON_LD = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://vertho.ai/#org",
+      name: "Vertho.ai",
+      url: "https://vertho.ai",
+      logo: "https://vertho.ai/logo-vertho.png",
+      email: "contato@vertho.ai",
+      description:
+        "Plataforma de IA para atrair, desenvolver e reter pessoas em escolas e empresas.",
+      sameAs: [
+        "https://br.linkedin.com/in/vertho-ai-a6a954372",
+        "https://www.instagram.com/vertho.ai/",
+      ],
+    },
+    {
+      "@type": "SoftwareApplication",
+      name: "Mentor IA",
+      applicationCategory: "BusinessApplication",
+      operatingSystem: "Web",
+      url: "https://vertho.ai/produto",
+      publisher: { "@id": "https://vertho.ai/#org" },
+      description:
+        "Diagnóstico de competências, PDI personalizado e trilha de 14 semanas com mentor de IA, multi-tenant por empresa.",
+    },
+  ],
+};
+
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 
 const inter = Inter({
   subsets: ["latin"],
@@ -55,9 +90,25 @@ export default function RootLayout({
       className={`${inter.variable} ${manrope.variable} ${instrumentSerif.variable}`}
     >
       <body className="font-sans antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD) }}
+        />
         <NavBar />
         <main>{children}</main>
         <Footer />
+        <Analytics />
+        {GA_ID && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script id="ga4" strategy="afterInteractive">
+              {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${GA_ID}');`}
+            </Script>
+          </>
+        )}
       </body>
     </html>
   );

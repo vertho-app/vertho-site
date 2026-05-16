@@ -11,5 +11,7 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: "/design",
     },
+    sitemap: "https://vertho.ai/sitemap.xml",
+    host: "https://vertho.ai",
   };
 }
