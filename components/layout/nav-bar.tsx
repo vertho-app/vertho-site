@@ -8,6 +8,7 @@
  * Os links Produto/NR-1/Quem somos/Radar do handoff foram removidos.
  * ─────────────────────────────────────────────────────────────────────────── */
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { cn } from "@/lib/cn";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
@@ -38,9 +39,17 @@ export function NavBar() {
       <Container className="flex h-16 items-center justify-between">
         <a
           href="/"
-          className="font-sans text-[18px] font-bold tracking-[-0.02em] text-white no-underline"
+          aria-label="Vertho — página inicial"
+          className="inline-flex items-center no-underline"
         >
-          vertho<span className="text-cyan">.ai</span>
+          <Image
+            src="/logo-vertho.png"
+            alt="Vertho"
+            width={3148}
+            height={744}
+            priority
+            className="h-7 w-auto"
+          />
         </a>
         <Button href={WHATSAPP} variant="nav" external>
           Falar com a gente

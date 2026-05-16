@@ -1,7 +1,8 @@
 /* ───────────────────────────────────────────────────────────────────────────
- * Home · Time. Avatares com iniciais (preparados p/ foto real depois) + selo
- * Bett. Fiel a sections.jsx (TeamSection). Copy dos sócios já validada.
+ * Home · Time. Fotos reais dos sócios (public/socios/*.avif) + selo Bett.
+ * Fiel a sections.jsx (TeamSection). Copy dos sócios já validada.
  * ─────────────────────────────────────────────────────────────────────────── */
+import Image from "next/image";
 import { Section } from "@/components/ui/section";
 import { Eyebrow } from "@/components/ui/eyebrow";
 import { Heading } from "@/components/ui/heading";
@@ -13,21 +14,21 @@ const TEAM = [
   {
     name: "Samuel Protetti",
     role: "Cofundador",
-    initials: "SP",
+    photo: "/socios/samuel.avif",
     accent: "var(--cyan)",
     desc: "Especialista em educação pública, 29 anos formando educadores. Atuou em projetos com UNESCO, Banco Mundial e GIZ. MBA Executivo (FGV) e MBA em Gestão Escolar (USP).",
   },
   {
     name: "Juliane Cavalcante",
     role: "Cofundadora",
-    initials: "JC",
+    photo: "/socios/juliane.avif",
     accent: "var(--lilac)",
     desc: 'Professora universitária, consultora e palestrante. 25 anos formando profissionais. Mestre em Comunicação (USP). Criadora do projeto "Tela Consciente".',
   },
   {
     name: "Rodrigo Naves",
     role: "Cofundador",
-    initials: "RN",
+    photo: "/socios/rodrigo.avif",
     accent: "var(--purple)",
     desc: "Empreendedor sênior em desenvolvimento de pessoas, 20 anos de atuação. Liderou plataformas com mais de 23 mil usuários. Especialista em Liderança (FGV).",
   },
@@ -45,18 +46,18 @@ export function TeamSection() {
         {TEAM.map((t) => (
           <Card key={t.name} variant="hover" className="flex h-full flex-col">
             <div
-              className="mb-5 flex h-[72px] w-[72px] items-center justify-center rounded-pill"
+              className="relative mb-5 h-[72px] w-[72px] overflow-hidden rounded-pill"
               style={{
-                background: `linear-gradient(135deg, color-mix(in srgb, ${t.accent} 13%, transparent), color-mix(in srgb, ${t.accent} 7%, transparent))`,
-                border: `2px solid color-mix(in srgb, ${t.accent} 27%, transparent)`,
+                border: `2px solid color-mix(in srgb, ${t.accent} 32%, transparent)`,
               }}
             >
-              <span
-                className="font-eyebrow text-[20px] font-bold"
-                style={{ color: t.accent }}
-              >
-                {t.initials}
-              </span>
+              <Image
+                src={t.photo}
+                alt={t.name}
+                fill
+                sizes="72px"
+                className="object-cover"
+              />
             </div>
             <h3 className="mb-1 text-[20px] font-semibold text-white">
               {t.name}

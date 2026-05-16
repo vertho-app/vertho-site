@@ -3,6 +3,7 @@
  * legal embaixo. Renderizado uma vez no app/layout.tsx.
  * E-mail/links confirmados pelo cliente: contato@vertho.ai.
  * ─────────────────────────────────────────────────────────────────────────── */
+import Image from "next/image";
 import { Container } from "@/components/ui/container";
 import { TextLink } from "@/components/ui/link";
 import { LinkedInIcon, InstagramIcon } from "@/components/ui/icons";
@@ -32,9 +33,13 @@ export function Footer() {
     <footer className="border-t border-card-border pb-8 pt-14">
       <Container className="grid grid-cols-1 gap-10 md:grid-cols-[1.6fr_1fr_1fr]">
         <div>
-          <div className="mb-2 font-sans text-[20px] font-bold tracking-[-0.02em] text-white">
-            vertho<span className="text-cyan">.ai</span>
-          </div>
+          <Image
+            src="/logo-vertho.png"
+            alt="Vertho"
+            width={3148}
+            height={744}
+            className="mb-3 h-7 w-auto"
+          />
           <p className="mb-5 max-w-[220px] text-[13px] leading-[1.5] text-ink-faint">
             Inteligência de Pessoas. Com IA.
           </p>
