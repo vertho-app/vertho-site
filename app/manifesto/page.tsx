@@ -82,11 +82,11 @@ export default function ManifestoPage() {
               problema de tecnologia.
             </Text>
             <Text size="lead" className="leading-[1.8]">
-              A Vertho é uma plataforma de Inteligência de Pessoas. Usamos IA
-              própria em múltiplas camadas — para mapear competências, para
-              construir perfis comportamentais, para gerar cenários
-              personalizados de aprendizagem, e para extrair sinais do ambiente
-              que ajudam ou bloqueiam a evolução das pessoas.
+              A Vertho é uma plataforma de Inteligência de Pessoas. Nossa IA
+              opera em quatro camadas: mapeamento de competências, construção de
+              perfis comportamentais, geração de cenários personalizados de
+              aprendizagem, e extração de sinais do ambiente que ajudam ou
+              bloqueiam a evolução das pessoas.
             </Text>
             <Text size="lead" className="leading-[1.8]">
               Cada profissional recebe um plano de desenvolvimento feito sob

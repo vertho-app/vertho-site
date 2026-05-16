@@ -6,8 +6,16 @@
  * Envolva seções de conteúdo; NÃO envolva o hero (deve aparecer imediato).
  * ─────────────────────────────────────────────────────────────────────────── */
 import { useEffect, useRef } from "react";
+import type { CSSProperties } from "react";
 
-export function RevealOnScroll({ children }: { children: React.ReactNode }) {
+export function RevealOnScroll({
+  children,
+  delay = 0,
+}: {
+  children: React.ReactNode;
+  /** Stagger em ms para reveals consecutivos (80–120 recomendado). */
+  delay?: number;
+}) {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -29,7 +37,11 @@ export function RevealOnScroll({ children }: { children: React.ReactNode }) {
   }, []);
 
   return (
-    <div ref={ref} className="reveal">
+    <div
+      ref={ref}
+      className="reveal"
+      style={{ "--reveal-delay": `${delay}ms` } as CSSProperties}
+    >
       {children}
     </div>
   );

@@ -66,8 +66,10 @@ export function Card({
   }
 
   const interactive =
-    variant === "hover"
-      ? "transition-[border-color,transform] duration-300 hover:-translate-y-0.5 hover:border-card-border-hover"
+    variant === "hover" || variant === "accent-top" || variant === "accent-left"
+      ? "transition-all duration-200 ease-out hover:-translate-y-0.5 " +
+        "hover:border-[rgba(52,197,204,0.3)] " +
+        "hover:shadow-[0_14px_34px_-12px_rgba(0,0,0,0.5)]"
       : "";
 
   const bar =

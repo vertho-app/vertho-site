@@ -55,7 +55,7 @@ export function UseCasesSection() {
             key={idx}
             variant="accent-top"
             accent={c.accent}
-            className="flex h-full flex-col hover:-translate-y-0.5 hover:border-card-border-hover"
+            className="flex h-full flex-col"
           >
             <h3 className="mb-3 font-display text-[22px] font-normal leading-[1.2] text-white">
               {c.title}

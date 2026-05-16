@@ -123,7 +123,7 @@ export function AudienceSection() {
             key={b.title}
             variant="accent-top"
             accent={b.accent}
-            className="flex h-full flex-col hover:-translate-y-0.5 hover:border-card-border-hover"
+            className="flex h-full flex-col"
           >
             <div className="mb-4 flex items-center gap-3.5">
               <div

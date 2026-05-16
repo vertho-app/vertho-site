@@ -1,6 +1,9 @@
 /* ───────────────────────────────────────────────────────────────────────────
- * Home · Time. Fotos reais dos sócios (public/socios/*.avif) + selo Bett.
- * Fiel a sections.jsx (TeamSection). Copy dos sócios já validada.
+ * Home · "Quem move a Vertho". Cards vendem COMPLEMENTARIDADE, não currículo:
+ * Nome → eyebrow papel → especialidade (destaque) → bio condensada →
+ * linha de contribuição (separada, seta sutil, cor mais clara).
+ * Fotos reais dos sócios mantidas (public/socios/*.avif). Selo Bett (passado).
+ * Reusado também em /quem-somos.
  * ─────────────────────────────────────────────────────────────────────────── */
 import Image from "next/image";
 import { Section } from "@/components/ui/section";
@@ -9,6 +12,7 @@ import { Heading } from "@/components/ui/heading";
 import { Text } from "@/components/ui/text";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { ArrowIcon } from "@/components/ui/icons";
 
 const TEAM = [
   {
@@ -16,21 +20,28 @@ const TEAM = [
     role: "Cofundador",
     photo: "/socios/samuel.avif",
     accent: "var(--cyan)",
-    desc: "Especialista em educação pública, 29 anos formando educadores. Atuou em projetos com UNESCO, Banco Mundial e GIZ. MBA Executivo (FGV) e MBA em Gestão Escolar (USP).",
+    specialty: "Educação pública e gestão escolar",
+    bio: "29 anos formando educadores. MBA Executivo (FGV) e MBA em Gestão Escolar (USP). Atuou em projetos com UNESCO, Banco Mundial e GIZ.",
+    contribution:
+      "Traz profundidade pedagógica e conhecimento do chão da escola.",
   },
   {
     name: "Juliane Cavalcante",
     role: "Cofundadora",
     photo: "/socios/juliane.avif",
     accent: "var(--lilac)",
-    desc: 'Professora universitária, consultora e palestrante. 25 anos formando profissionais. Mestre em Comunicação (USP). Criadora do projeto "Tela Consciente".',
+    specialty: "Comunicação e aprendizagem",
+    bio: '25 anos formando profissionais. Professora universitária, consultora e palestrante. Mestre em Comunicação (USP). Criadora do projeto "Tela Consciente".',
+    contribution: "Conecta conteúdo, linguagem e formação de adultos.",
   },
   {
     name: "Rodrigo Naves",
     role: "Cofundador",
     photo: "/socios/rodrigo.avif",
     accent: "var(--purple)",
-    desc: "Empreendedor sênior em desenvolvimento de pessoas, 20 anos de atuação. Liderou plataformas com mais de 23 mil usuários. Especialista em Liderança (FGV).",
+    specialty: "Desenvolvimento de pessoas e tecnologia aplicada",
+    bio: "20 anos de atuação. Liderou plataformas com mais de 23 mil usuários. Especialista em Liderança (FGV).",
+    contribution: "Conecta metodologia, produto e escala comercial.",
   },
 ];
 
@@ -59,18 +70,38 @@ export function TeamSection() {
                 className="object-cover"
               />
             </div>
-            <h3 className="mb-1 text-[20px] font-semibold text-white">
+
+            <h3 className="text-[20px] font-semibold leading-tight text-white">
               {t.name}
             </h3>
             <p
-              className="mb-3.5 font-eyebrow text-[11px] font-bold uppercase tracking-[0.12em]"
+              className="mt-1.5 font-eyebrow text-[11px] font-bold uppercase tracking-[0.14em]"
               style={{ color: t.accent }}
             >
               {t.role}
             </p>
-            <Text size="small" className="text-[14px] leading-[1.7]">
-              {t.desc}
+
+            <p
+              className="mt-3 font-display text-[18px] italic leading-snug"
+              style={{ color: t.accent }}
+            >
+              {t.specialty}
+            </p>
+
+            <Text size="small" className="mt-3 text-[14px] leading-[1.7]">
+              {t.bio}
             </Text>
+
+            <div className="mt-auto flex items-start gap-2 border-t border-card-border pt-4">
+              <ArrowIcon
+                size={13}
+                className="mt-[3px] shrink-0"
+                style={{ color: t.accent }}
+              />
+              <p className="text-[13px] leading-[1.6] text-ink-dim">
+                {t.contribution}
+              </p>
+            </div>
           </Card>
         ))}
       </div>

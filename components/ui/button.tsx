@@ -20,17 +20,19 @@ type ButtonVariant = "primary" | "cta" | "secondary" | "ghost" | "nav" | "nr1";
 
 const BASE =
   "group inline-flex items-center justify-center gap-2 font-sans no-underline " +
-  "transition-[background-color,color,border-color,transform,box-shadow] duration-200 " +
+  "transition-all duration-150 ease-out " +
   "cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-cyan/60 " +
   "focus-visible:ring-offset-2 focus-visible:ring-offset-navy-deep";
 
 const VARIANT: Record<ButtonVariant, string> = {
   primary:
-    "rounded-md px-7 py-3.5 text-[14px] font-bold bg-cyan text-navy-deep " +
-    "hover:bg-cyan-hover hover:-translate-y-px",
+    "rounded-md px-7 py-3.5 text-[14px] font-bold text-navy-deep " +
+    "bg-[linear-gradient(135deg,#34C5CC,#2FB9C0)] " +
+    "hover:bg-[linear-gradient(135deg,#5DD4D9,#34C5CC)] hover:-translate-y-px",
   cta:
-    "rounded-cta px-9 py-[18px] text-[16px] font-bold bg-cyan text-navy-deep " +
-    "shadow-[var(--shadow-cta)] hover:bg-cyan-hover hover:-translate-y-0.5 " +
+    "rounded-cta px-9 py-[18px] text-[16px] font-bold text-navy-deep " +
+    "bg-[linear-gradient(135deg,#34C5CC,#2FB9C0)] shadow-[var(--shadow-cta)] " +
+    "hover:bg-[linear-gradient(135deg,#5DD4D9,#34C5CC)] hover:-translate-y-0.5 " +
     "hover:shadow-[0_8px_32px_rgba(52,197,204,0.35)]",
   secondary:
     "rounded-md px-7 py-3.5 text-[14px] font-semibold bg-transparent text-cyan " +

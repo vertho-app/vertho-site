@@ -40,7 +40,7 @@ export function TextLink({
     <a
       href={href}
       className={cn(
-        "group no-underline transition-colors duration-200",
+        "group no-underline transition-all duration-150 ease-out",
         VARIANT[variant],
         className,
       )}

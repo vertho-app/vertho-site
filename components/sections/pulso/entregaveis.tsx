@@ -29,7 +29,7 @@ export function EntregaveisSection() {
             key={it.title}
             variant="accent-left"
             accent={it.accent}
-            className="flex h-full flex-col hover:-translate-y-0.5 hover:border-card-border-hover"
+            className="flex h-full flex-col"
           >
             <div className="mb-2 flex items-center justify-between">
               <h4 className="text-[18px] font-semibold text-white">
