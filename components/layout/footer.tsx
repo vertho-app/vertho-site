@@ -11,7 +11,6 @@ const PRODUTO = [
   { href: "/produto", label: "Mentor IA" },
   { href: "/produto/onboarding", label: "Onboarding" },
   { href: "/produto/pulso", label: "Pulso" },
-  { href: "/nr-1", label: "NR-1" },
 ];
 
 const EMPRESA = [

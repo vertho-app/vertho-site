@@ -1,20 +1,20 @@
 "use client";
 /* ───────────────────────────────────────────────────────────────────────────
  * <NavBar> — barra fixa no topo. Transparente sobre o hero; ao rolar > 40px
- * ganha fundo navy translúcido + blur + borda inferior (igual aos mockups).
- * Renderizada uma vez no app/layout.tsx. Radar é link externo.
+ * ganha fundo navy translúcido + blur + borda inferior.
+ *
+ * Decisão do cliente (confirmação Fase 1): nav minimalista = só logo +
+ * CTA único "Falar com a gente", que abre o WhatsApp (não /contato).
+ * Os links Produto/NR-1/Quem somos/Radar do handoff foram removidos.
  * ─────────────────────────────────────────────────────────────────────────── */
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/cn";
 import { Container } from "@/components/ui/container";
-import { TextLink } from "@/components/ui/link";
 import { Button } from "@/components/ui/button";
 
-const LINKS = [
-  { href: "/produto", label: "Produto" },
-  { href: "/nr-1", label: "NR-1" },
-  { href: "/quem-somos", label: "Quem somos" },
-];
+const WHATSAPP =
+  "https://wa.me/5511975404356?text=" +
+  encodeURIComponent("Olá! Vim pelo site da Vertho e quero saber mais.");
 
 export function NavBar() {
   const [scrolled, setScrolled] = useState(false);
@@ -42,29 +42,9 @@ export function NavBar() {
         >
           vertho<span className="text-cyan">.ai</span>
         </a>
-        <div className="flex items-center gap-7">
-          {LINKS.map((l) => (
-            <TextLink
-              key={l.href}
-              href={l.href}
-              variant="nav"
-              className="hidden sm:inline"
-            >
-              {l.label}
-            </TextLink>
-          ))}
-          <TextLink
-            href="https://radar.vertho.ai"
-            variant="nav"
-            external
-            className="hidden sm:inline"
-          >
-            Radar
-          </TextLink>
-          <Button href="/contato" variant="nav">
-            Falar com a gente
-          </Button>
-        </div>
+        <Button href={WHATSAPP} variant="nav" external>
+          Falar com a gente
+        </Button>
       </Container>
     </nav>
   );

@@ -24,7 +24,7 @@ export function NR1Section() {
           psicossociais ligados ao desenvolvimento — integráveis ao PGR
           conduzido pelo SESMT da sua organização.
         </Text>
-        <Button href="/nr-1" variant="nr1" withArrow>
+        <Button href="/produto/pulso#nr-1" variant="nr1" withArrow>
           Entenda como
         </Button>
       </Card>
