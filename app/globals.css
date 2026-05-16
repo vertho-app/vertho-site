@@ -1,0 +1,217 @@
+@import "tailwindcss";
+
+/* ═══════════════════════════════════════════════════════════════════════════
+ * Vertho.ai — Site institucional · Design System (Fase 0)
+ *
+ * Tokens derivados dos 4 mockups-âncora (Home, Produto, Onboarding, Pulso) e
+ * conferidos contra o globals.css do Mentor IA — paleta e fundo são idênticos.
+ *
+ * REGRA DE OURO: nenhum componente usa cor/raio/sombra "solto". Tudo sai
+ * daqui via CSS var ou utilitário Tailwind gerado pelo @theme inline abaixo.
+ * Tema é ESCURO (navy). Não existe tema claro neste site.
+ * ═══════════════════════════════════════════════════════════════════════════ */
+
+:root {
+  --nav-height: 64px;
+
+  /* ─── Paleta oficial Vertho (igual ao brand guide / Mentor IA) ───────────
+     navy*      → fundos. deep é o topo do gradiente, navy o fim
+     cyan       → ação primária, links, acentos "positivos"
+     cyan-soft  → eyebrows, texto de destaque suave
+     lilac      → acento NR-1 / alertas editoriais
+     purple*    → acento secundário (avatar, NR-1 callout border)
+     coral      → único "negativo" permitido (bloqueadores no Pulso)
+     ──────────────────────────────────────────────────────────────────────── */
+  --navy: #0F2B54;
+  --navy-deep: #06172C;
+  --navy-dark: #091D35;
+  --navy-card: #0c2039;
+  --cyan: #34C5CC;
+  --cyan-hover: #5dd4d9;
+  --cyan-soft: #9AE2E6;
+  --lilac: #E1AAEF;
+  --purple: #9E4EDD;
+  --purple-deep: #3B0A6D;
+  --coral: #F97354;
+
+  /* ─── Tinta (texto) — 3 níveis, use estes e só estes ─────────────────────
+     ink       → títulos e texto forte (#fff também aceito p/ headlines)
+     ink-dim   → corpo de parágrafo (padrão de leitura)
+     ink-faint → labels, metadados, estados desativados
+     ──────────────────────────────────────────────────────────────────────── */
+  --ink: #F3F7FB;
+  --ink-dim: rgba(243, 247, 251, 0.62);
+  --ink-faint: rgba(243, 247, 251, 0.38);
+
+  /* ─── Superfície de card — fundo + 2 bordas ──────────────────────────────
+     card-bg            → fundo translúcido de todo card
+     card-border        → borda neutra padrão
+     card-border-hover  → borda no hover de cards interativos
+     ──────────────────────────────────────────────────────────────────────── */
+  --card-bg: rgba(255, 255, 255, 0.025);
+  --card-border: rgba(255, 255, 255, 0.08);
+  --card-border-hover: rgba(255, 255, 255, 0.14);
+
+  /* ─── Border-radius — escala fechada (valores exatos dos mockups) ────────
+     sm   10px → pills pequenas, nav-cta, ícones-caixa
+     md   12px → botões, inputs, links-botão
+     cta  14px → botão CTA grande (hero / CTA final)
+     lg   20px → cards principais, painel mockup (glass)
+     xl   24px → callout NR-1, blocos hero destacados
+     pill 100px → badges, dots, selo Bett
+     ──────────────────────────────────────────────────────────────────────── */
+  --radius-sm: 10px;
+  --radius-md: 12px;
+  --radius-cta: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 24px;
+  --radius-pill: 100px;
+
+  /* ─── Sombras — 3 usos, com parcimônia ───────────────────────────────────
+     glass   → painel mockup flutuante do hero (único lugar com sombra forte)
+     cta     → glow do botão CTA primário grande
+     float   → dropdowns/modais futuros
+     ──────────────────────────────────────────────────────────────────────── */
+  --shadow-glass: 0 32px 64px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.04);
+  --shadow-cta: 0 4px 24px rgba(52, 197, 204, 0.25);
+  --shadow-cta-hover: 0 8px 32px rgba(52, 197, 204, 0.35);
+  --shadow-float: 0 24px 48px rgba(0, 0, 0, 0.42), 0 8px 16px rgba(0, 0, 0, 0.28);
+
+  /* ─── Layout ─────────────────────────────────────────────────────────────
+     content → largura máxima de conteúdo (Container default)
+     gutter  → padding lateral do Container
+     section → ritmo vertical padrão de Section
+     ──────────────────────────────────────────────────────────────────────── */
+  --content-width: 1120px;
+  --content-narrow: 700px;
+  --gutter: 40px;
+  --section-y: 96px;
+}
+
+/* Fundo navy idêntico aos mockups e ao Mentor IA — definido uma vez no body */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background:
+    radial-gradient(1200px 600px at 85% -10%, rgba(52, 197, 204, 0.06), transparent 60%),
+    radial-gradient(900px 500px at -10% 30%, rgba(59, 10, 109, 0.12), transparent 60%),
+    linear-gradient(180deg, #06172C 0%, #091D35 35%, #0F2B54 100%);
+  background-attachment: fixed;
+  color: var(--ink);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: -0.01em;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+::selection {
+  background: rgba(52, 197, 204, 0.3);
+  color: #fff;
+}
+
+/* ─── Animações dos mockups ──────────────────────────────────────────────────
+   float → círculo decorativo do hero
+   pulse → indicador de "digitando" / dots
+   ──────────────────────────────────────────────────────────────────────────── */
+@keyframes float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(12px, -18px) scale(1.02); }
+  50% { transform: translate(-8px, -30px) scale(0.98); }
+  75% { transform: translate(16px, -10px) scale(1.01); }
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 0.2; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.15); }
+}
+
+/* ─── Reveal on scroll ───────────────────────────────────────────────────────
+   Aplicado por <RevealOnScroll>. .reveal começa invisível/deslocado;
+   .visible (setado via IntersectionObserver) anima pra posição final.
+   ──────────────────────────────────────────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  html { scroll-behavior: auto; }
+}
+
+/* ─── Divisor de seção ───────────────────────────────────────────────────────
+   Linha-gradiente fina entre seções (ver <SectionDivider>).
+   ──────────────────────────────────────────────────────────────────────────── */
+.section-divider {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+.section-divider::after {
+  content: "";
+  display: block;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.06) 20%,
+    rgba(255, 255, 255, 0.06) 80%,
+    transparent
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+ * @theme inline — expõe os tokens acima como utilitários Tailwind v4.
+ * Gera: bg-navy, text-ink-dim, border-card-border, rounded-lg, font-display…
+ * ═══════════════════════════════════════════════════════════════════════════ */
+@theme inline {
+  /* Cores → bg-*, text-*, border-* */
+  --color-navy: var(--navy);
+  --color-navy-deep: var(--navy-deep);
+  --color-navy-dark: var(--navy-dark);
+  --color-navy-card: var(--navy-card);
+  --color-cyan: var(--cyan);
+  --color-cyan-hover: var(--cyan-hover);
+  --color-cyan-soft: var(--cyan-soft);
+  --color-lilac: var(--lilac);
+  --color-purple: var(--purple);
+  --color-purple-deep: var(--purple-deep);
+  --color-coral: var(--coral);
+  --color-ink: var(--ink);
+  --color-ink-dim: var(--ink-dim);
+  --color-ink-faint: var(--ink-faint);
+  --color-card-bg: var(--card-bg);
+  --color-card-border: var(--card-border);
+  --color-card-border-hover: var(--card-border-hover);
+
+  /* Famílias tipográficas → font-sans, font-display, font-eyebrow */
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-display: var(--font-serif), Georgia, serif;
+  --font-eyebrow: var(--font-manrope), system-ui, sans-serif;
+
+  /* Raios → rounded-sm/md/cta/lg/xl/pill */
+  --radius-sm: 10px;
+  --radius-md: 12px;
+  --radius-cta: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 24px;
+  --radius-pill: 100px;
+
+  /* Sombras → shadow-glass / shadow-cta / shadow-float */
+  --shadow-glass: 0 32px 64px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.04);
+  --shadow-cta: 0 4px 24px rgba(52, 197, 204, 0.25);
+  --shadow-float: 0 24px 48px rgba(0, 0, 0, 0.42), 0 8px 16px rgba(0, 0, 0, 0.28);
+
+  /* Animações → animate-float / animate-pulse-dot */
+  --animate-float: float 20s ease-in-out infinite;
+  --animate-pulse-dot: pulse-dot 1.2s ease-in-out infinite;
+}
