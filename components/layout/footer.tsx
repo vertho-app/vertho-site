@@ -40,7 +40,7 @@ export function Footer() {
           </p>
           <div className="flex gap-3">
             <a
-              href="https://linkedin.com/company/vertho"
+              href="https://br.linkedin.com/in/vertho-ai-a6a954372"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn da Vertho"
@@ -49,7 +49,7 @@ export function Footer() {
               <LinkedInIcon />
             </a>
             <a
-              href="https://instagram.com/vertho.ai"
+              href="https://www.instagram.com/vertho.ai/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram da Vertho"
