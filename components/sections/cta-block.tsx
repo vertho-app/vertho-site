@@ -27,7 +27,7 @@ export function CtaBlock({
   whatsappMessage?: string;
 }) {
   const wpp =
-    "https://wa.me/5511975404356?text=" + encodeURIComponent(whatsappMessage);
+    "https://wa.me/5511911807809?text=" + encodeURIComponent(whatsappMessage);
   return (
     <Section id={id} bare className="overflow-hidden">
       <div

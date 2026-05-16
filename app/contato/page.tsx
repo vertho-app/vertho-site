@@ -29,7 +29,7 @@ export const metadata: Metadata = {
 };
 
 const WPP =
-  "https://wa.me/5511975404356?text=" +
+  "https://wa.me/5511911807809?text=" +
   encodeURIComponent("Olá! Vim pelo site da Vertho e quero saber mais.");
 
 export default function ContatoPage() {

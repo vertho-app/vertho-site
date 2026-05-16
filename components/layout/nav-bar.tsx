@@ -20,7 +20,7 @@ import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 
 const WHATSAPP =
-  "https://wa.me/5511975404356?text=" +
+  "https://wa.me/5511911807809?text=" +
   encodeURIComponent("Olá! Vim pelo site da Vertho e quero saber mais.");
 
 const LINKS = [
