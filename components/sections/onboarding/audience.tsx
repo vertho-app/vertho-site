@@ -49,7 +49,7 @@ export function OnbAudienceSection() {
           <div className="mt-auto flex items-center gap-2">
             <span className="h-1.5 w-1.5 rounded-pill bg-cyan opacity-60" />
             <span className="text-[12px] font-semibold text-cyan opacity-80">
-              Em pilotos confirmados pós-Bett Brasil 2026
+              Em pilotos iniciados após a Bett Brasil 2026
             </span>
           </div>
         </Card>

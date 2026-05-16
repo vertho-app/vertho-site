@@ -39,7 +39,7 @@ const VALORES = [
 ];
 
 const CONQUISTAS = [
-  "Presença confirmada na Bett Brasil 2026",
+  "Apresentada na Bett Brasil 2026",
   "Programa Apex",
   "Parcerias institucionais em educação",
   "Pilotos em curso em escolas e empresas",

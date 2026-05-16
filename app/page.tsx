@@ -48,11 +48,11 @@ export default function Home() {
       </RevealOnScroll>
       <SectionDivider />
       <RevealOnScroll>
-        <DifferentialsSection />
+        <AudienceSection />
       </RevealOnScroll>
       <SectionDivider />
       <RevealOnScroll>
-        <AudienceSection />
+        <DifferentialsSection />
       </RevealOnScroll>
       <SectionDivider />
       <RevealOnScroll>

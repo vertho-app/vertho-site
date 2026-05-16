@@ -102,7 +102,7 @@ export function HeroSection() {
           </Text>
           <div className="flex flex-wrap gap-3.5">
             <Button href="/produto" variant="primary" withArrow>
-              Ver o produto
+              Ver como funciona
             </Button>
             <Button href="/contato" variant="secondary">
               Falar com a gente

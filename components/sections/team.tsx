@@ -77,7 +77,7 @@ export function TeamSection() {
 
       <div className="mt-8 flex justify-center">
         <Badge variant="dot" tone="cyan">
-          Presença confirmada na Bett Brasil 2026
+          Apresentada na Bett Brasil 2026
         </Badge>
       </div>
     </Section>

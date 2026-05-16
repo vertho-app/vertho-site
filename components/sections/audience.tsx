@@ -83,7 +83,7 @@ const BLOCKS = [
     accent: "cyan" as const,
     accentVar: "var(--cyan)",
     text: "A área que mais precisa desenvolver pessoas é, paradoxalmente, a que tem menos estrutura para isso. A Vertho ocupa esse vazio. Diagnóstico de competências docentes, trilha com mentor de IA, onboarding estruturado para professores recém-formados e relatórios consolidados para coordenação e direção.",
-    proof: "Em pilotos na Bett Brasil 2026",
+    proof: "Em pilotos com escolas conhecidas na Bett Brasil 2026",
     href: "/produto",
     mockup: <EduMockup />,
     icon: (

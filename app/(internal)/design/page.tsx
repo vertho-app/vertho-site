@@ -194,7 +194,7 @@ export default function DesignPage() {
           <Badge variant="soft" tone="coral">Mexer</Badge>
           <Badge variant="soft" tone="lilac">Investigar</Badge>
           <Badge variant="soft" tone="cyan-soft">Executar</Badge>
-          <Badge variant="dot">Presença confirmada na Bett Brasil 2026</Badge>
+          <Badge variant="dot">Apresentada na Bett Brasil 2026</Badge>
           <Badge variant="alert" tone="lilac">
             Fiscalização a partir de 26.05.2026
           </Badge>
