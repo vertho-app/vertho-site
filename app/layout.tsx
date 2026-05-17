@@ -1,14 +1,14 @@
 /* ───────────────────────────────────────────────────────────────────────────
  * Root layout — fontes, metadata base e chrome global (NavBar + Footer).
  *
- * Fontes (next/font/google), nomes de CSS var coerentes com o Mentor IA:
- *   Inter           → --font-inter   (corpo / font-sans)
- *   Instrument Serif → --font-serif  (display / font-display) — normal+italic
- *   Manrope         → --font-manrope (eyebrows / font-eyebrow)
- * Fraunces foi DESCARTADA do projeto — não importar.
+ * Fontes (next/font/google) — design 100% sans-serif (sem serif no site):
+ *   Inter             → --font-inter   (corpo / font-sans)
+ *   Plus Jakarta Sans → --font-jakarta (display / font-display)
+ *   Manrope           → --font-manrope (eyebrows / font-eyebrow)
+ * Instrument Serif/Fraunces foram DESCARTADAS — não importar.
  * ─────────────────────────────────────────────────────────────────────────── */
 import type { Metadata } from "next";
-import { Inter, Instrument_Serif, Manrope } from "next/font/google";
+import { Inter, Plus_Jakarta_Sans, Manrope } from "next/font/google";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
@@ -61,22 +61,21 @@ const manrope = Manrope({
   display: "swap",
 });
 
-const instrumentSerif = Instrument_Serif({
+const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  weight: ["400"],
-  style: ["normal", "italic"],
-  variable: "--font-serif",
+  weight: ["500", "600", "700", "800"],
+  variable: "--font-jakarta",
   display: "swap",
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://vertho.ai"),
   title: {
-    default: "Vertho.ai — Inteligência de Pessoas com IA",
+    default: "Vertho.ai — Inteligência de Pessoas",
     template: "%s — Vertho.ai",
   },
   description:
-    "Plataforma de IA para atrair, desenvolver e reter pessoas em escolas e empresas. Do diagnóstico ao plano de ação, em uma só ferramenta.",
+    "Plataforma de Inteligência de Pessoas. A Vertho conecta perfil comportamental, função, cultura, desenvolvimento e decisão em uma única jornada — para empresas, escolas e redes.",
 };
 
 export default function RootLayout({
@@ -87,7 +86,7 @@ export default function RootLayout({
   return (
     <html
       lang="pt-BR"
-      className={`${inter.variable} ${manrope.variable} ${instrumentSerif.variable}`}
+      className={`${inter.variable} ${manrope.variable} ${jakarta.variable}`}
     >
       <body className="font-sans antialiased">
         <script

@@ -5,7 +5,7 @@
  * ─────────────────────────────────────────────────────────────────────────── */
 import { ImageResponse } from "next/og";
 
-export const alt = "Vertho.ai — Inteligência de Pessoas com IA";
+export const alt = "Vertho.ai — Inteligência de Pessoas";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -35,7 +35,7 @@ export default function OpengraphImage() {
             color: "#9AE2E6",
           }}
         >
-          Inteligência de Pessoas · Com IA
+          Inteligência de Pessoas
         </div>
 
         <div
@@ -48,7 +48,7 @@ export default function OpengraphImage() {
             letterSpacing: "-0.02em",
           }}
         >
-          Para desenvolver pessoas, primeiro é preciso conhecê-las.
+          Dificuldade para atrair, desenvolver e reter as pessoas certas?
         </div>
 
         <div

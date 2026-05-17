@@ -1,30 +1,40 @@
 /* ───────────────────────────────────────────────────────────────────────────
- * Home (/) — Fase 1. Ordem e ritmo fiéis a "Vertho Home v2.html":
- * Hero → Ciclo → Diferenciais → Públicos → NR-1 → Time → CTA.
- * NavBar e Footer são chrome global (app/layout.tsx).
+ * Home (/) — Redesign 2026 · Inteligência de Pessoas.
+ *
+ * Tema CLARO (branco gelo / cinza azulado) com 2 blocos de acento em azul
+ * profundo (Diferenciação e CTA final). Vende a SOLUÇÃO INTEGRADA — não
+ * módulos isolados. Estrutura (11 blocos do brief; o "Header" é a NavBar
+ * global em app/layout.tsx):
+ *   Hero → Problema → Promessa → Jornada → Como funciona → Diferenciação →
+ *   IA+Humano → Portas de entrada → Segurança → CTA final.
+ *
  * SEO: title/description/canonical/OpenGraph aqui; og:image via
- * app/opengraph-image.tsx. Analytics fica para a Fase 4.
+ * app/opengraph-image.tsx. NavBar/Footer são chrome global.
  * ─────────────────────────────────────────────────────────────────────────── */
 import type { Metadata } from "next";
-import { SectionDivider } from "@/components/ui/section-divider";
 import { RevealOnScroll } from "@/components/ui/reveal-on-scroll";
-import { HeroSection } from "@/components/sections/hero";
-import { CycleSection } from "@/components/sections/cycle";
-import { DifferentialsSection } from "@/components/sections/differentials";
-import { AudienceSection } from "@/components/sections/audience";
-import { NR1Section } from "@/components/sections/nr1";
-import { TeamSection } from "@/components/sections/team";
-import { CtaFinal } from "@/components/sections/cta-final";
+import {
+  Hero,
+  Problem,
+  Promise,
+  Journey,
+  HowItWorks,
+  Differentiation,
+  AiHuman,
+  Entries,
+  Security,
+  FinalCta,
+} from "@/components/sections/home";
 
 const DESCRIPTION =
-  "Plataforma de IA para atrair, desenvolver e reter pessoas em escolas e empresas. Do diagnóstico ao plano de ação, em uma só ferramenta.";
+  "Plataforma de Inteligência de Pessoas. A Vertho conecta perfil comportamental, função, cultura, desenvolvimento e decisão em uma única jornada — para empresas, escolas e redes.";
 
 export const metadata: Metadata = {
-  title: { absolute: "Vertho.ai — Inteligência de Pessoas com IA" },
+  title: { absolute: "Vertho.ai — Inteligência de Pessoas" },
   description: DESCRIPTION,
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Vertho.ai — Inteligência de Pessoas com IA",
+    title: "Vertho.ai — Inteligência de Pessoas",
     description: DESCRIPTION,
     url: "https://vertho.ai",
     siteName: "Vertho.ai",
@@ -33,39 +43,42 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Vertho.ai — Inteligência de Pessoas com IA",
+    title: "Vertho.ai — Inteligência de Pessoas",
     description: DESCRIPTION,
   },
 };
 
 export default function Home() {
   return (
-    <>
-      <HeroSection />
-      <SectionDivider />
+    <div className="bg-paper">
+      <Hero />
       <RevealOnScroll>
-        <CycleSection />
+        <Problem />
       </RevealOnScroll>
-      <SectionDivider />
       <RevealOnScroll>
-        <AudienceSection />
+        <Promise />
       </RevealOnScroll>
-      <SectionDivider />
       <RevealOnScroll>
-        <DifferentialsSection />
+        <Journey />
       </RevealOnScroll>
-      <SectionDivider />
       <RevealOnScroll>
-        <NR1Section />
+        <HowItWorks />
       </RevealOnScroll>
-      <SectionDivider />
       <RevealOnScroll>
-        <TeamSection />
+        <Differentiation />
       </RevealOnScroll>
-      <SectionDivider />
       <RevealOnScroll>
-        <CtaFinal />
+        <AiHuman />
       </RevealOnScroll>
-    </>
+      <RevealOnScroll>
+        <Entries />
+      </RevealOnScroll>
+      <RevealOnScroll>
+        <Security />
+      </RevealOnScroll>
+      <RevealOnScroll>
+        <FinalCta />
+      </RevealOnScroll>
+    </div>
   );
 }

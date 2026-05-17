@@ -86,11 +86,35 @@
   --content-narrow: 700px;
   --gutter: 40px;
   --section-y: 96px;
+
+  /* ─── Tema CLARO (Home redesign 2026) ────────────────────────────────────
+     A home usa base clara (branco gelo / cinza azulado) com blocos de
+     acento em azul profundo. Demais páginas seguem o tema navy escuro.
+     Tokens novos — NÃO colidem com os tokens escuros acima.
+     ──────────────────────────────────────────────────────────────────────── */
+  --paper: #F7FAFC;          /* branco gelo — base da home */
+  --paper-soft: #EEF4F9;     /* degradê suave entre seções */
+  --mist: #E6EEF5;           /* cinza azulado — superfícies frias */
+  --brand: #142F57;          /* azul profundo — blocos de acento / texto forte */
+  --brand-deep: #071B33;     /* azul quase preto — fundo dos blocos escuros */
+  --ai: #8B5CF6;             /* roxo IA — acento secundário */
+  --ai-soft: #A78BFA;
+  --ink-strong: #0C2748;     /* títulos sobre claro */
+  --ink-body: #3F5570;       /* corpo de texto sobre claro */
+  --ink-soft: #6C819A;       /* labels / metadados sobre claro */
+  --line: rgba(20, 47, 87, 0.10);    /* hairline sobre claro */
+  --line-strong: rgba(20, 47, 87, 0.16);
+  --card-light: #FFFFFF;     /* superfície de card clara */
+  --shadow-soft: 0 1px 2px rgba(12, 39, 72, 0.04), 0 8px 24px -10px rgba(12, 39, 72, 0.14);
+  --shadow-lift: 0 2px 4px rgba(12, 39, 72, 0.05), 0 18px 42px -16px rgba(12, 39, 72, 0.22);
+  --shadow-glow-cyan: 0 0 0 1px rgba(52, 197, 204, 0.18), 0 18px 50px -18px rgba(52, 197, 204, 0.45);
 }
 
 /* Fundo navy idêntico aos mockups e ao Mentor IA — definido uma vez no body */
 html {
   scroll-behavior: smooth;
+  /* offset para âncoras não ficarem sob a NavBar fixa (64px + folga) */
+  scroll-padding-top: 84px;
 }
 
 body {
@@ -126,6 +150,33 @@ body {
 @keyframes pulse-dot {
   0%, 100% { opacity: 0.2; transform: scale(1); }
   50% { opacity: 0.6; transform: scale(1.15); }
+}
+
+/* ─── Animações do redesign da Home (sutis, respeitam reduced-motion) ────────
+   sweep    → varredura do radar comportamental (hero)
+   glow     → respiração suave de brilho ciano (nós/CTA)
+   dash     → fluxo das linhas de conexão tracejadas (SVG)
+   rise     → leve flutuação dos cards do dashboard
+   ──────────────────────────────────────────────────────────────────────────── */
+@keyframes sweep {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes glow {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; }
+}
+@keyframes dash {
+  to { stroke-dashoffset: -32; }
+}
+@keyframes rise {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .animate-sweep, .animate-glow, .animate-dash-flow, .animate-rise {
+    animation: none !important;
+  }
 }
 
 /* ─── Reveal on scroll ───────────────────────────────────────────────────────
@@ -194,9 +245,25 @@ body {
   --color-card-border: var(--card-border);
   --color-card-border-hover: var(--card-border-hover);
 
-  /* Famílias tipográficas → font-sans, font-display, font-eyebrow */
+  /* Tema claro da Home → bg-paper, text-ink-strong, border-line… */
+  --color-paper: var(--paper);
+  --color-paper-soft: var(--paper-soft);
+  --color-mist: var(--mist);
+  --color-brand: var(--brand);
+  --color-brand-deep: var(--brand-deep);
+  --color-ai: var(--ai);
+  --color-ai-soft: var(--ai-soft);
+  --color-ink-strong: var(--ink-strong);
+  --color-ink-body: var(--ink-body);
+  --color-ink-soft: var(--ink-soft);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-card-light: var(--card-light);
+
+  /* Famílias tipográficas → font-sans, font-display, font-eyebrow.
+     Site 100% sans-serif: display = Plus Jakarta Sans. */
   --font-sans: var(--font-inter), system-ui, sans-serif;
-  --font-display: var(--font-serif), Georgia, serif;
+  --font-display: var(--font-jakarta), var(--font-inter), system-ui, sans-serif;
   --font-eyebrow: var(--font-manrope), system-ui, sans-serif;
 
   /* Raios → rounded-sm/md/cta/lg/xl/pill */
@@ -212,7 +279,11 @@ body {
   --shadow-cta: 0 4px 24px rgba(52, 197, 204, 0.25);
   --shadow-float: 0 24px 48px rgba(0, 0, 0, 0.42), 0 8px 16px rgba(0, 0, 0, 0.28);
 
-  /* Animações → animate-float / animate-pulse-dot */
+  /* Animações → animate-float / animate-pulse-dot / sweep / glow / rise */
   --animate-float: float 20s ease-in-out infinite;
   --animate-pulse-dot: pulse-dot 1.2s ease-in-out infinite;
+  --animate-sweep: sweep 8s linear infinite;
+  --animate-glow: glow 3.4s ease-in-out infinite;
+  --animate-dash-flow: dash 1.1s linear infinite;
+  --animate-rise: rise 6s ease-in-out infinite;
 }
